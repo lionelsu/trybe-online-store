@@ -69,6 +69,7 @@ class Search extends Component {
               data-testid="category"
               className="button__categorie"
             >
+
               {categoria.name}
             </button>
           ))}
