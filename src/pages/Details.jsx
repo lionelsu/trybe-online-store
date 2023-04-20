@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { getProductById } from '../services/api';
+import { saveCartID } from '../services/saveCart';
 
 class Details extends Component {
   state = {
@@ -22,34 +23,47 @@ class Details extends Component {
     });
   };
 
+  addToCart = (id) => {
+    saveCartID(id);
+  };
+
   render() {
     const { productId } = this.state;
     const verifyProductId = productId.attributes > 0;
     return (
       <section>
-        <img
-          data-testid="product-detail-image"
-          src={ ` ${productId.thumbnail}` }
-          alt=""
-        />
-        <p data-testid="product-detail-name">{productId.title}</p>
-        <p
-          data-testid="product-detail-price"
-        >
-          {productId.price}
+        <div>
+          <img
+            data-testid="product-detail-image"
+            src={ ` ${productId.thumbnail}` }
+            alt=""
+          />
+          <p data-testid="product-detail-name">{productId.title}</p>
+          <p
+            data-testid="product-detail-price"
+          >
+            {productId.price}
 
-        </p>
-        {verifyProductId && (
-          <ul>
-            {productId.attributes.map((attribut, index) => (
-              <li
-                key={ index }
-              >
-                {`${attribut.name}: ${attribut.value_name} `}
-              </li>
-            ))}
-          </ul>
-        )}
+          </p>
+          {verifyProductId && (
+            <ul>
+              {productId.attributes.map((attribut, index) => (
+                <li
+                  key={ index }
+                >
+                  {`${attribut.name}: ${attribut.value_name} `}
+                </li>
+              ))}
+            </ul>
+          )}
+          <button
+            data-testid="product-detail-add-to-cart"
+            type="button"
+            onClick={ () => this.addToCart(productId) }
+          >
+            Adicionar ao carrinho
+          </button>
+        </div>
 
         <Link to="/cart">
           <button
