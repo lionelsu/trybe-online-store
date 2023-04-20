@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Input from '../components/Input';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
+import { saveCartID } from '../services/saveCart';
 import Details from './Details';
 
 class Search extends Component {
@@ -44,6 +45,10 @@ class Search extends Component {
 
     this.setState({ searchProduct: realResult, isProduct: true });
     console.log(realResult);
+  };
+
+  addToCart = (id) => {
+    saveCartID(id);
   };
 
   render() {
@@ -98,20 +103,31 @@ class Search extends Component {
         <section>
           {isProduct ? (
             searchProduct.map((product, index) => (
-              <Link
-                data-testid="product-detail-link"
-                to={ `/details/${product.id} ` }
+              <section
                 key={ index }
               >
-                <p
-                  data-testid="product"
-                >
-                  {product.title}
+                <Link
+                  data-testid="product-detail-link"
+                  to={ `/details/${product.id} ` }
 
-                </p>
-                <p>{product.price}</p>
-                <img src={ product.thumbnail } alt={ product.title } />
-              </Link>
+                >
+                  <p
+                    data-testid="product"
+                  >
+                    {product.title}
+
+                  </p>
+                  <p>{product.price}</p>
+                  <img src={ product.thumbnail } alt={ product.title } />
+                </Link>
+                <button
+                  data-testid="product-add-to-cart"
+                  type="button"
+                  onClick={ () => this.addToCart(product) }
+                >
+                  Adicionar ao carrinho
+                </button>
+              </section>
             ))
           ) : (
             <p>Nenhum produto foi encontrado</p>
@@ -126,7 +142,6 @@ class Search extends Component {
             Ir para o carrinho.
           </button>
         </Link>
-
       </section>
     );
   }
