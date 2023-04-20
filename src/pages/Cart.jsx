@@ -12,7 +12,6 @@ class Cart extends Component {
   }
 
   getProductsSave = () => {
-    // const { productCart } = this.state;
     const productCart = getSavedCartIDs();
     this.setState({
       productCart,
