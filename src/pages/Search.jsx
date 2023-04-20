@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Input from '../components/Input';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
+import Details from './Details';
 
 class Search extends Component {
   state = {
@@ -9,6 +10,8 @@ class Search extends Component {
     categories: [],
     searchProduct: [],
     isProduct: true,
+    productId: {},
+    rendery: false,
   };
 
   componentDidMount() {
@@ -44,9 +47,18 @@ class Search extends Component {
   };
 
   render() {
-    const { search, categories, searchProduct, isProduct } = this.state;
+    const { search,
+      categories,
+      searchProduct,
+      isProduct,
+      productId,
+      rendery } = this.state;
+    console.log(productId);
     return (
       <section>
+        {rendery && <Details
+          productId={ productId }
+        />}
         <div>
           <Input
             placeholder="Search"
@@ -86,14 +98,20 @@ class Search extends Component {
         <section>
           {isProduct ? (
             searchProduct.map((product, index) => (
-              <div
+              <Link
+                data-testid="product-detail-link"
+                to={ `/details/${product.id} ` }
                 key={ index }
-                data-testid="product"
               >
-                <p>{product.title}</p>
+                <p
+                  data-testid="product"
+                >
+                  {product.title}
+
+                </p>
                 <p>{product.price}</p>
                 <img src={ product.thumbnail } alt={ product.title } />
-              </div>
+              </Link>
             ))
           ) : (
             <p>Nenhum produto foi encontrado</p>
