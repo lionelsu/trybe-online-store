@@ -22,8 +22,8 @@ class Search extends Component {
   };
 
   searchProduct = async () => {
-    const { search } = this.state;
-    const result = await getProductsFromCategoryAndQuery(search);
+    const { search, categoryId } = this.state;
+    const result = await getProductsFromCategoryAndQuery(categoryId, search);
     const realResult = result.results;
     if (realResult.length === 0) {
       this.setState({ isProduct: false });
@@ -33,6 +33,14 @@ class Search extends Component {
 
   handlerChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
+  };
+
+  categoryByClick = async (categoryId, query) => {
+    const result = await getProductsFromCategoryAndQuery(categoryId, query);
+    const realResult = result.results;
+
+    this.setState({ searchProduct: realResult, isProduct: true });
+    console.log(realResult);
   };
 
   render() {
@@ -68,6 +76,7 @@ class Search extends Component {
               key={ categoria.id }
               data-testid="category"
               className="button__categorie"
+              onClick={ () => this.categoryByClick(categoria.id, categoria.name) }
             >
 
               {categoria.name}
