@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Input from '../components/Input';
-import { getCategories, getProductById, getProductsFromCategoryAndQuery } from '../services/api';
+import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 import Details from './Details';
 
 class Search extends Component {
@@ -47,12 +47,17 @@ class Search extends Component {
   };
 
   render() {
-    const { search, categories, searchProduct, isProduct, productId, rendery } = this.state;
+    const { search,
+      categories,
+      searchProduct,
+      isProduct,
+      productId,
+      rendery } = this.state;
     console.log(productId);
     return (
       <section>
-        {rendery && <Details 
-        productId={productId}
+        {rendery && <Details
+          productId={ productId }
         />}
         <div>
           <Input
@@ -93,14 +98,17 @@ class Search extends Component {
         <section>
           {isProduct ? (
             searchProduct.map((product, index) => (
-              <Link 
+              <Link
                 data-testid="product-detail-link"
-                to={`/details/${product.id} `}
+                to={ `/details/${product.id} ` }
                 key={ index }
               >
                 <p
-                 data-testid="product">
-                  {product.title}</p>
+                  data-testid="product"
+                >
+                  {product.title}
+
+                </p>
                 <p>{product.price}</p>
                 <img src={ product.thumbnail } alt={ product.title } />
               </Link>

@@ -12,8 +12,8 @@ export class App extends Component {
 
         <Switch>
           <Route exact path="/cart" component={ Cart } />
-           <Route exact path="/details/:id" component={ Details } />
-           <Route exact path="/" component={ Search } />
+          <Route exact path="/details/:id" component={ Details } />
+          <Route exact path="/" component={ Search } />
         </Switch>
 
       </main>
