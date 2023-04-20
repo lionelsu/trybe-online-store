@@ -28,10 +28,9 @@ class Cart extends Component {
           productCart.map((product, index) => (
             <section
               key={ index }
-              data-testid="shopping-cart-product-name"
             >
               <img src={ product.thumbnail } alt="" />
-              <p>
+              <p data-testid="shopping-cart-product-name">
                 {product.title}
 
               </p>
