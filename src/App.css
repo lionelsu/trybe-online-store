@@ -10,6 +10,6 @@
 }
 
 .flex__container__prices {
-  display: flex;
   align-items: center;
+  display: flex;
 }
