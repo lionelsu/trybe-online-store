@@ -30,16 +30,17 @@ class Details extends Component {
     const verifyProductId = productId.attributes > 0;
     return (
       <section>
-        <img
-          data-testid="product-detail-image"
-          src={ ` ${productId.thumbnail}` }
-          alt=""
-        />
-        <p data-testid="product-detail-name">{productId.title}</p>
-        <p
-          data-testid="product-detail-price"
-        >
-          {productId.price}
+        <div>
+          <img
+            data-testid="product-detail-image"
+            src={ ` ${productId.thumbnail}` }
+            alt=""
+          />
+          <p data-testid="product-detail-name">{productId.title}</p>
+          <p
+            data-testid="product-detail-price"
+          >
+            {productId.price}
 
         </p>
         {verifyProductId && (
@@ -60,6 +61,7 @@ class Details extends Component {
         >
           Adicionar ao carrinho
         </button>
+
         <Link to="/cart">
           <button
             type="button"

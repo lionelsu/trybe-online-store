@@ -35,6 +35,7 @@ class Cart extends Component {
     return (
       <section>
         { verifyProductCart ? (
+
           <section>
             {productCart.map((product, index) => (
               <ProductCreations
