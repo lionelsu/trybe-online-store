@@ -42,25 +42,26 @@ class Details extends Component {
           >
             {productId.price}
 
-        </p>
-        {verifyProductId && (
-          <ul>
-            {productId.attributes.map((attribut, index) => (
-              <li
-                key={ index }
-              >
-                {`${attribut.name}: ${attribut.value_name} `}
-              </li>
-            ))}
-          </ul>
-        )}
-        <button
-          data-testid="product-detail-add-to-cart"
-          type="button"
-          onClick={ () => this.addToCart(productId) }
-        >
-          Adicionar ao carrinho
-        </button>
+          </p>
+          {verifyProductId && (
+            <ul>
+              {productId.attributes.map((attribut, index) => (
+                <li
+                  key={ index }
+                >
+                  {`${attribut.name}: ${attribut.value_name} `}
+                </li>
+              ))}
+            </ul>
+          )}
+          <button
+            data-testid="product-detail-add-to-cart"
+            type="button"
+            onClick={ () => this.addToCart(productId) }
+          >
+            Adicionar ao carrinho
+          </button>
+        </div>
 
         <Link to="/cart">
           <button
