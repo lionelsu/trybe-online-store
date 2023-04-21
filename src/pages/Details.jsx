@@ -15,8 +15,6 @@ class Details extends Component {
 
   fetchRequisitionProductId = async () => {
     const { match: { params: { id } } } = this.props;
-    // const { params } = match;
-    // const { id } = params;
     const productId = await getProductById(id);
     this.setState({
       productId,

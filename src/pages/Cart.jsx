@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 // import { getProductById } from '../services/api';
 import { getSavedCartIDs } from '../services/saveCart';
+import ProductCreations from '../components/ProductCreations';
 
 class Cart extends Component {
   state = {
     productCart: [],
+    totalValue: 0,
   };
 
   componentDidMount() {
@@ -18,30 +20,39 @@ class Cart extends Component {
     });
   };
 
-  render() {
+  updateCart = (productId, totalValue) => {
     const { productCart } = this.state;
-    console.log(productCart);
+    const updatedProductCart = productCart.filter((product) => product.id !== productId);
+    this.setState({
+      productCart: updatedProductCart,
+      totalValue,
+    });
+  };
+
+  render() {
+    const { productCart, totalValue } = this.state;
     const verifyProductCart = productCart.length > 0;
     return (
       <section>
         { verifyProductCart ? (
-          productCart.map((product, index) => (
-            <section
-              key={ index }
-            >
-              <img src={ product.thumbnail } alt="" />
-              <p data-testid="shopping-cart-product-name">
-                {product.title}
 
+          <section>
+            {productCart.map((product, index) => (
+              <ProductCreations
+                key={ index }
+                index={ index }
+                product={ product }
+                productCart={ productCart.length }
+                updateCart={ this.updateCart }
+              />
+            ))}
+            <div>
+              <p>
+                Total dos Produtos:
+                {totalValue}
               </p>
-              <p>{ product.price}</p>
-              <p
-                data-testid="shopping-cart-product-quantity"
-              >
-                {productCart.length}
-              </p>
-            </section>
-          ))
+            </div>
+          </section>
         ) : (
           <div
             data-testid="shopping-cart-empty-message"

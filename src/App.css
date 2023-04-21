@@ -8,3 +8,8 @@
 .button__categorie {
   width: 200px;
 }
+
+.flex__container__prices {
+  display: flex;
+  align-items: center;
+}

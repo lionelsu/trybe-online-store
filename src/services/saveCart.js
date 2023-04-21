@@ -23,7 +23,8 @@ export const saveCartID = (id) => {
 export const removeCartID = (id) => {
   if (!id) throw new Error('Você deve fornecer um ID');
   const cartProducts = [...getSavedCartIDs()];
-  const indexProduct = cartProducts.indexOf(id);
+  const test = cartProducts.map((element) => element.id);
+  const indexProduct = test.indexOf(id);
   cartProducts.splice(indexProduct, 1);
   localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
 };
