@@ -1,4 +1,4 @@
-export default class LocalStorageManager {
+class LocalStorageManager {
   static instance = null;
 
   static getInstance() {
@@ -21,3 +21,7 @@ export default class LocalStorageManager {
     localStorage.removeItem(key);
   }
 }
+
+const localStorageManager = LocalStorageManager.getInstance();
+
+export default localStorageManager;

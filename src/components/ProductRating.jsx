@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import LocalStorageManager from './LocalStorageManager';
-
-const localStorageManager = LocalStorageManager.getInstance();
+import localStorageManager from './LocalStorageManager';
 
 export default class ProductRating extends React.Component {
   state = {
