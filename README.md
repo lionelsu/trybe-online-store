@@ -14,9 +14,18 @@ Durante o desenvolvimento foram criadas rotas de navegação para simular o comp
 
 O projeto não persiste em um banco de dados real, apenas simula as iterações com a manipulação da **API** do Mercado Livre.
 
+Foram realizadas daily meatings até a entrega final do projeto, utilizamos o kanban para entrega das tarefas mesmo com a útilização da metodologia Scrum até o final do desenvolvimento.
+
+# Colaboradores
+
+Este projeto foi construido em um ambiente e grupo maravilhoso:
+@Paulo-Victor-Belens
+
 # Tecnologias e práticas
 
 * Javascript ES6
 * React Router
-* Javascript Assíncrono 
+* Javascript Assíncrono
 * Manipulação de API
+* Scrum
+* Kanban
