@@ -1,4 +1,4 @@
-# Trybe Tunes
+# Trybe Online Store
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/lionelsu/trybe-online-store?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/lionelsu/trybe-online-store?style=for-the-badge)
