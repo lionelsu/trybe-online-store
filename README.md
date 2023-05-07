@@ -18,8 +18,14 @@ Foram realizadas daily meatings até a entrega final do projeto, utilizamos o ka
 
 # Colaboradores
 
-Este projeto foi construido em um ambiente e grupo maravilhoso:
-@Paulo-Victor-Belens
+Este projeto foi construido com muito empenho por este grupo maravilhoso:
+
+* lionelsu
+* Paulo-Victor-Belens
+* guilherme-lr
+* antoniocunhadev
+* binhorochatrybe
+* LuanPaganucci
 
 # Tecnologias e práticas
 
