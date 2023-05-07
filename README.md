@@ -3,7 +3,6 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/lionelsu/trybe-online-store?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/lionelsu/trybe-online-store?style=for-the-badge)
 ![GitHub top language](https://img.shields.io/github/languages/top/lionelsu/trybe-online-store?style=for-the-badge)
-[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=for-the-badge)](https://stackshare.io/lionelsu/trybe-online-store)
 
 Este projeto foi construído em um ambiente acadêmico e tem a intenção de atender a propósitos educacionais.
 
